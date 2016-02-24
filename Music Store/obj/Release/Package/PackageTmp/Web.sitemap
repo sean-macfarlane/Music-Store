@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap>
+  <siteMapNode title="Home" url="~/Default.aspx">
+    <siteMapNode title="Login" url="~/Login.aspx"></siteMapNode>
+    <siteMapNode title="Categories" url="~/CategoryDetails.aspx">
+    </siteMapNode>
+    <siteMapNode title="Product" url="~/ProductDetails.aspx"></siteMapNode>
+    <siteMapNode title="Cart" url="~/Cart.aspx">
+      <siteMapNode title="Checkout" url="~/Checkout.aspx">
+        <siteMapNode title="Thank You" url="~/ThankYou.aspx"></siteMapNode>
+      </siteMapNode>
+    </siteMapNode>
+    <siteMapNode title="Admin Home" url="~/Admin/Default.aspx">
+      <siteMapNode title="Add Category" url="~/Admin/AddCategory.aspx"></siteMapNode>
+      <siteMapNode title="Add Product" url="~/Admin/AddProduct.aspx"></siteMapNode>
+      <siteMapNode title="Edit Category" url="~/Admin/EditCategory.aspx"></siteMapNode>
+      <siteMapNode title="Edit Product" url="~/Admin/EditProduct.aspx"></siteMapNode>
+      <siteMapNode title="Bad Words" url="~/Admin/BadWords.aspx"></siteMapNode>
+    </siteMapNode>
+  </siteMapNode>
+</siteMap>

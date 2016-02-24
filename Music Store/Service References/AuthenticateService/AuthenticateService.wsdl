@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="AuthenticateUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthenticateUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthenticateUserResult" type="tns:AlgonquinCollegeUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AlgonquinCollegeUser">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsStudent" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsStaff" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsFaculty" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AuthenticateUserExtended">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthenticateUserExtendedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthenticateUserExtendedResult" type="tns:AlgonquinCollegeUserExtended" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AlgonquinCollegeUserExtended">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:AlgonquinCollegeUser">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="StudentNumber" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="EmployeeNumber" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetUserInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strAdminUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strAdminPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserInfoResult" type="tns:AlgonquinCollegeUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchUsersByLastName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strLastName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strAdminUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strAdminPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchUsersByLastNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchUsersByLastNameResult" type="tns:ArrayOfAlgonquinCollegeUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAlgonquinCollegeUser">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AlgonquinCollegeUser" nillable="true" type="tns:AlgonquinCollegeUser" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AuthenticateUserSoapIn">
+    <wsdl:part name="parameters" element="tns:AuthenticateUser" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticateUserSoapOut">
+    <wsdl:part name="parameters" element="tns:AuthenticateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticateUserExtendedSoapIn">
+    <wsdl:part name="parameters" element="tns:AuthenticateUserExtended" />
+  </wsdl:message>
+  <wsdl:message name="AuthenticateUserExtendedSoapOut">
+    <wsdl:part name="parameters" element="tns:AuthenticateUserExtendedResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetUserInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchUsersByLastNameSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchUsersByLastName" />
+  </wsdl:message>
+  <wsdl:message name="SearchUsersByLastNameSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchUsersByLastNameResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AuthenticateServiceSoap">
+    <wsdl:operation name="AuthenticateUser">
+      <wsdl:input message="tns:AuthenticateUserSoapIn" />
+      <wsdl:output message="tns:AuthenticateUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateUserExtended">
+      <wsdl:input message="tns:AuthenticateUserExtendedSoapIn" />
+      <wsdl:output message="tns:AuthenticateUserExtendedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInfo">
+      <wsdl:input message="tns:GetUserInfoSoapIn" />
+      <wsdl:output message="tns:GetUserInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchUsersByLastName">
+      <wsdl:input message="tns:SearchUsersByLastNameSoapIn" />
+      <wsdl:output message="tns:SearchUsersByLastNameSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AuthenticateServiceSoap" type="tns:AuthenticateServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AuthenticateUser">
+      <soap:operation soapAction="http://tempuri.org/AuthenticateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateUserExtended">
+      <soap:operation soapAction="http://tempuri.org/AuthenticateUserExtended" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInfo">
+      <soap:operation soapAction="http://tempuri.org/GetUserInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchUsersByLastName">
+      <soap:operation soapAction="http://tempuri.org/SearchUsersByLastName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AuthenticateServiceSoap12" type="tns:AuthenticateServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AuthenticateUser">
+      <soap12:operation soapAction="http://tempuri.org/AuthenticateUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateUserExtended">
+      <soap12:operation soapAction="http://tempuri.org/AuthenticateUserExtended" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetUserInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchUsersByLastName">
+      <soap12:operation soapAction="http://tempuri.org/SearchUsersByLastName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AuthenticateService">
+    <wsdl:port name="AuthenticateServiceSoap" binding="tns:AuthenticateServiceSoap">
+      <soap:address location="https://ltsservices.algonquincollege.com/AuthenticateService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AuthenticateServiceSoap12" binding="tns:AuthenticateServiceSoap12">
+      <soap12:address location="https://ltsservices.algonquincollege.com/AuthenticateService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

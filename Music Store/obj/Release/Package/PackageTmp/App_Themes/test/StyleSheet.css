@@ -1,0 +1,108 @@
+﻿html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 100px;
+  padding-top: 60px;
+}
+
+h1 {
+    margin-top: -10px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 80px;
+  background-color: #f5f5f5;
+  padding-left: 100px;
+  padding-top: 10px;
+}
+.menuitem {
+    margin-top: 50px;
+}
+.logout{
+    margin-top: 10px;
+    text-decoration: none;
+    background  : none;
+    border : none;
+}
+.container-fluid{
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 10px;
+    padding-bottom: 50px;
+}
+
+.login {
+    position: absolute;
+	font-family: Arial, Helvetica, sans-serif;
+	top: 30%;
+	left: 35%;
+	z-index: 2;
+}
+
+.login>div {
+	width: 400px;
+	position: relative;
+	padding: 20px;
+    text-align: center;
+	border-radius: 10px;
+ -webkit-box-shadow: 0px 1px 3px #666666;
+	-moz-box-shadow: 0px 1px 3px #666666;
+	box-shadow: 0px 1px 3px #666666;
+	background: #FFFFFF;
+}
+
+.btn{
+    color: #000000;
+	background: #F5F5F5;
+	padding: 5px 10px 5px 10px;
+	border: solid #F5F5F5 1px;
+	text-decoration: none;
+	-webkit-border-radius: 4;
+	-moz-border-radius: 4;
+	border-radius: 4px;
+	-webkit-box-shadow: 0px 1px 3px #666666;
+	-moz-box-shadow: 0px 1px 3px #666666;
+	box-shadow: 0px 1px 3px #666666;
+  
+}
+
+.btn:hover {
+	background: #C6C6C6;
+    border-color: #9A9898;
+	text-decoration: none;
+}
+
+tr > td {
+padding-bottom: 5px;  
+padding-top: 5px;
+padding-left: 5px;
+text-align: left;
+}
+
+.breadcrumb{
+    padding-top: -20px;
+    background-color: none;
+}
+
+#sidebar {
+    padding-top: 5px;
+}
+
+.dropdownCat {
+    border: 1px solid #111;
+   background: transparent;
+   border: none;
+   font-size: 16px;
+   height: 34px;
+   padding-top: 13px;
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;
+   
+}
